@@ -32,3 +32,38 @@ anime.timeline({loop: true})
     easing: "easeOutExpo",
     delay: 1000
   });
+
+
+  $.validator.addMethod("alpha", function(value, element) {
+    return this.optional(element) || value == value.match(/^[a-zA-Z]+$/);
+});
+
+
+
+  $(document).ready(function(){
+    $("#hello").validate({
+       rules:{
+        name:{
+          alpha:true,
+          required:true,
+        minlength:3
+
+        },
+        email:{
+          required:true,
+          
+        },
+        email:true,
+        minlength:10,
+        
+      message:{
+        fname:{
+          alpha:"Enter letters only",
+
+          required:"This field is needed",
+        }
+
+      }
+       }
+    })
+  })

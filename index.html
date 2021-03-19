@@ -185,33 +185,22 @@
         <div class="row">
            
             <div class="col-md-4">
-                <form>
+                <form id="hello" method="POST" action="https://script.google.com/macros/s/AKfycbybvDnTOJty8FTyyNBEjv52qQeIkvZfxNZlANdMaxNB7i3YwNobFE7m1iUiwAJv49z2Gw/exec"> 
                     <div class="form-group">
                       <label for="exampleInputEmail1">Ener Your Namae</label>
               
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Name">
-                      <label style="display: none;" for="" id="error">Enter Your Name</label>
-                      <script>
-          
-              
-                        $("#exampleInputEmail1").blur(function(){
-                          var text=$(this).val()
-                          if(text.length<0){
-                            $ ("error").show()
-                            
-
-                          }
-                        })
-                      </script>
+                      <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Name" pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter on alphabets only. ')">
+                      <label  for="" >Enter Your Name</label>
+             
                     </div>
                     
                     <div class="form-group">
                       <label for="exampleInputPassword1">Your Email Id</label>
-                      <input type="email" class="form-control" id="exampleInputPassword1" placeholder="example@gamil.com">
+                      <input  name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="example@gamil.com" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Message</label>
-                        <input type="text" class="form-control" style="height:100px" id="exampleInputPassword1" placeholder="Your Message">
+                        <input name="message" type="text" class="form-control" style="height:100px" id="exampleInputPassword1"  required>
                       </div>
                     
                     <button type="submit" class="btn btn-primary">Submit</button>
