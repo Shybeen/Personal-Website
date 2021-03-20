@@ -47,7 +47,7 @@
 
 <body>
 
-<header class="bg-dark">
+<header class="bg-dark" style="position: fixed;width: 100%; z-index: 1;">
     <div class="row text-white " style="width: 100%;">
         <div class="col-md-6  col-9 p-3 pl-5">
           <h1 class="ml11 " style="font-family: Cinzel;">
@@ -88,7 +88,7 @@
 </div>
 
 </header>
-<section  class="p-4 bg-light>
+<section  class=" bg-light" style="padding-top: 15rem;">
     <div class="container">
         <div class="row align-items-center ">
             <div class="col-md-6">
@@ -105,6 +105,7 @@
             </div>
         </div>
     </div>
+
 </section>
 
 <section id="serv" class="bg-light p-5" >
@@ -185,12 +186,13 @@
         <div class="row">
            
             <div class="col-md-4">
-                <form id="hello" method="POST" action="https://script.google.com/macros/s/AKfycbybvDnTOJty8FTyyNBEjv52qQeIkvZfxNZlANdMaxNB7i3YwNobFE7m1iUiwAJv49z2Gw/exec"> 
+                <form id="submit-form" action=""> 
                     <div class="form-group">
                       <label for="exampleInputEmail1">Ener Your Namae</label>
               
-                      <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required placeholder="Your Name" pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter on alphabets only. ')">
-                      
+                      <input name="name" type="text" class="form-control"  placeholder="Your Name" required pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter on Valid Name only.')" >
+                   
+                     
              
                     </div>
                     
@@ -199,9 +201,14 @@
                       <input  name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="example@gamil.com" required>
                     </div>
                     <div class="form-group">
+                      <label for="exampleInputPassword1">Mobile Number</label>
+                      <input name="message" type="text" class="form-control"  id="exampleInputPassword1"  required pattern="[0-9]+"oninvalid="setCustomValidity('Please enter  Numbers only.')">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputPassword1">Message</label>
                         <input name="message" type="text" class="form-control" style="height:100px" id="exampleInputPassword1"  required>
                       </div>
+                      
                     
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
@@ -222,20 +229,41 @@
         <div class="row text-white p-3" style="width: 100%;">
             <div class="mx-auto text-info">
                 
-           <a href="https://www.facebook.com/shybeen.p.v/"> <i class="fab fa-facebook "></i></a>
-           <a href="https://www.instagram.com/mhd_shybeen/"> <i class="fab fa-instagram"></i></a>
-           <a href="https://twitter.com/mohammedshaibin"> <i class="fab fa-twitter"></i></a>
+           <a href="https://www.facebook.com/shybeen.p.v/" target="_blank"> <i class="fab fa-facebook "></i></a>
+           <a href="https://www.instagram.com/mhd_shybeen/" target="_blank"> <i class="fab fa-instagram"></i></a>
+           <a href="https://twitter.com/mohammedshaibin" target="_blank"> <i class="fab fa-twitter"></i></a>
 </div>
          
         </div>
     </div>
 </footer>
 
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/876436f1fd.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script src="style.js"></script>
+
+<script>
+  $("#submit-form").submit((e)=>{
+      e.preventDefault()
+      $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbybvDnTOJty8FTyyNBEjv52qQeIkvZfxNZlANdMaxNB7i3YwNobFE7m1iUiwAJv49z2Gw/exec",
+          data:$("#submit-form").serialize(),
+          method:"post",
+          success:function (response){
+              alert("Form submitted successfully")
+              window.location.reload()
+              //window.location.href="https://google.com"
+          },
+          error:function (err){
+              alert("Something Error")
+
+          }
+      })
+  })
+</script>
+
 </body>
 </html>

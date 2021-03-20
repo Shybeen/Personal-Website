@@ -34,36 +34,35 @@ anime.timeline({loop: true})
   });
 
 
-  $.validator.addMethod("alpha", function(value, element) {
-    return this.optional(element) || value == value.match(/^[a-zA-Z]+$/);
-});
 
 
 
-  $(document).ready(function(){
-    $("#hello").validate({
-       rules:{
-        name:{
-          alpha:true,
-          required:true,
-        minlength:3
+  // $(document).ready(function(){
+  //   $("#hello").validate({
+  //      rules:{
+  //       name:{
+       
+  //         required:true,
+  //       minlength:3
 
-        },
-        email:{
-          required:true,
+  //       },
+  //       email:{
+  //         required:true,
           
-        },
-        email:true,
-        minlength:10,
+  //       },
+  //       email:true,
+  //       minlength:10,
         
-      message:{
-        fname:{
-          alpha:"Enter letters only",
+  //     message:{
+  //       fname:{
+          
 
-          required:"This field is needed",
-        }
+  //         required:"This field is needed",
+  //       }
 
-      }
-       }
-    })
-  })
+  //     }
+  //      }
+  //   })
+  // })
+
+
