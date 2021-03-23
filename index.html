@@ -188,24 +188,33 @@
             <div class="col-md-4">
                 <form id="submit-form" action=""> 
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Ener Your Namae</label>
+                      
               
-                      <input name="name" type="text" class="form-control"  placeholder="Your Name" required pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter on Valid Name only.')" >
-                   
+                      <input name="name" id="name" type="text" class="form-control"  placeholder="Your Name" required pattern="[a-zA-Z]*" onkeyup="namevalidation()" >
+                      <span id="namerequired" style="display: none;color: red;" >Name Required</span>
+                      <span id="namelenghth" style="display: none;color: red;">minimum 4 charcters</span>
+                      <span id="nameerror" style="display: none;color: red;">Enter Name</span>
+                      
                      
              
                     </div>
                     
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Your Email Id</label>
-                      <input  name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="example@gamil.com" required>
+                     
+                      <input  name="email" type="email" class="form-control" id="email" placeholder="Enter Your Email ID"  onkeyup="emailvalidation()" >
+                      <span id="emailrequired" style="color: red; display: none;">Email Required</span>
+                      <span id="emailcheck" style="display: none; color: red;" >Enter Valid Email</span>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Mobile Number</label>
-                      <input name="message" type="text" class="form-control"  id="exampleInputPassword1"  required pattern="[0-9]+"oninvalid="setCustomValidity('Please enter  Numbers only.')">
+                      
+                      <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" onkeyup="mobilevalidation()"/>
+                      <span id="mobilerequired" style="display: none;color: red;">Required</span>
+                      <!-- <span id="mobilelength" class="formvalidate"></span> -->
+                      <span id="mobileerror" style="display: none;color: red;">Only Numbers</span>
+                    
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Message</label>
+                        
                         <input name="message" type="text" class="form-control" style="height:100px" id="exampleInputPassword1"  required>
                       </div>
                       
